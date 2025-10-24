@@ -12,7 +12,8 @@ class BoutiqueController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        // recuperer 6 produits
+        $products = Product::limit(6)->get();
         return view('index',compact('products'));
     }
 
@@ -37,7 +38,9 @@ class BoutiqueController extends Controller
      */
     public function show(string $id)
     {
-        //
+        //SELECTIONNE Produit FROM ID
+        $product = Product::Find($id);
+        return view('details',compact('product'));
     }
 
     /**
